@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DemoDapperPlus.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/pessoa")]
 public class PessoaController(IPessoaService productService) : ControllerBase
 {
 
@@ -18,7 +18,7 @@ public class PessoaController(IPessoaService productService) : ControllerBase
         return null;
     }
 
-    [HttpPost]
+    [HttpPost("cadastro-em-massa")]
     public async Task<IActionResult> Post()
     {
         // 10 pessoas, cada uma com 1 a 3 endereços, sempre os mesmos dados
@@ -35,13 +35,13 @@ public class PessoaController(IPessoaService productService) : ControllerBase
         return Ok(new { Message = "Product updated successfully" });
     }
 
-    [HttpPut]
+    [HttpPut("update")]
     public async Task<IActionResult> Update()
     {
         return Ok(new { Message = "Product updated successfully" });
     }
 
-    [HttpDelete]
+    [HttpDelete("delete/{id:guid}")]
     public async Task<IActionResult> Delete()
     {
         return Ok(new { Message = "Product updated successfully" });
